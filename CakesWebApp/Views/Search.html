@@ -1,0 +1,12 @@
+﻿<a href="/">Back to home</a><br />
+<h1>Searching for "@Model.SearchText"</h1>
+@foreach (var cake in Model.Cakes)
+{
+    <div>
+        <a href="/cakes/view?id=@cake.Id">@cake.Name</a> $@cake.Price
+        <form action="/orders/add" method="post">
+            <input  name="productId" type="hidden" value="@cake.Id"/> <!--Данните винаги трябва да се валидират! Това може да се смени ръчно-->
+            <input type="submit" class="btn-primary" value="Order"/>
+        </form>
+    </div>
+}
